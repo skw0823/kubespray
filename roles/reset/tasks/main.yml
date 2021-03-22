@@ -18,6 +18,8 @@
     - kubelet
     - vault
     - calico-node
+    - k8s-certs-renew.service
+    - k8s-certs-renew.timer
   register: services_removed
   tags:
     - services
@@ -258,6 +260,7 @@
     - "{{ bin_dir }}/weave"
     - "{{ bin_dir }}/crictl"
     - "{{ bin_dir }}/netctl"
+    - "{{ bin_dir }}/k8s-certs-renew.sh"
     - /var/lib/cni
     - /etc/vault
     - /etc/openvswitch
