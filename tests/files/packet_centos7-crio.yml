@@ -13,3 +13,8 @@ download_run_once: true
 
 # CRI-O requirements
 etcd_deployment_type: host
+
+# required
+calico_iptables_backend: "Auto"
+
+auto_renew_certificates: true
