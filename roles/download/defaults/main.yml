@@ -73,7 +73,7 @@ typha_enabled: false
 
 flannel_version: "v0.13.0"
 
-cni_version: "v0.9.0"
+cni_version: "v0.8.6"
 
 weave_version: 2.7.0
 pod_infra_version: "3.3"
@@ -473,8 +473,8 @@ etcd_binary_checksums:
   amd64: 2ac029e47bab752dacdb7b30032f230f49e2f457cbc32e8f555c2210bb5ff107
 cni_binary_checksums:
   arm: 11e6f62c6e67cb17b98f91e30718a057c6caf88d02e8f6ab3f3e0e8f642e0e26
-  arm64: 49bdf1d3c852a831964aea8c9d12340b36107ee756d8328403905ff599abc6f5
-  amd64: 58a58d389895ba9f9bbd3ef330f186c0bb7484136d0bfb9b50152eed55d9ec24
+  arm64: 43fbf750c5eccb10accffeeb092693c32b236fb25d919cf058c91a677822c999
+  amd64: 994fbfcdbb2eedcfa87e48d8edb9bb365f4e2747a7e47658482556c12fd9b2f5
 calicoctl_binary_checksums:
   arm:
     v3.16.5: 0
