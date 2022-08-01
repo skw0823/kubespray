@@ -17,9 +17,11 @@
   * [Kube OVN](docs/kube-ovn.md)
   * [Weave](docs/weave.md)
   * [Multus](docs/multus.md)
+  * [OVN4NFV](docs/ovn4nfv.md)
 * Ingress
   * [kube-vip](docs/kube-vip.md)
   * [ALB Ingress](docs/ingress_controller/alb_ingress_controller.md)
+  * [Ambassador](docs/ingress_controller/ambassador.md)
   * [MetalLB](docs/metallb.md)
   * [Nginx Ingress](docs/ingress_controller/ingress_nginx.md)
 * [Cloud providers](docs/cloud.md)
@@ -35,6 +37,7 @@
   * [OpenSUSE](docs/opensuse.md)
   * [RedHat Enterprise Linux](docs/rhel.md)
   * [CentOS/OracleLinux/AlmaLinux/Rocky Linux](docs/centos.md)
+  * [Kylin Linux Advanced Server V10](docs/kylinlinux.md)
   * [Amazon Linux 2](docs/amazonlinux.md)
 * CRI
   * [Containerd](docs/containerd.md)

@@ -127,6 +127,7 @@ vagrant up
 - **Alma Linux** [8](docs/centos8.md)
 - **Rocky Linux** [8](docs/centos8.md)
 - **Amazon Linux 2** (experimental: see [amazon linux notes](docs/amazonlinux.md))
+- **Kylin Linux Advanced Server V10** (experimental: see [kylin linux notes](docs/kylinlinux.md))
 
 Note: Upstart/SysV init based OS types are not supported.
 
