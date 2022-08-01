@@ -8,7 +8,7 @@
   environment: {}
 
 - include_tasks: bootstrap-centos.yml
-  when: '"CentOS" in os_release.stdout or "Oracle" in os_release.stdout'
+  when: '''ID="centos"'' in os_release.stdout_lines or ''ID="ol"'' or ''ID="kylin"'' in os_release.stdout_lines'
 
 - include_tasks: bootstrap-redhat.yml
   when: '"Red Hat Enterprise Linux" in os_release.stdout'

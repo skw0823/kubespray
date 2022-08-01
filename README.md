@@ -110,6 +110,7 @@ vagrant up
 - **Fedora CoreOS** (experimental: see [fcos Note](docs/fcos.md))
 - **openSUSE** Leap 42.3/Tumbleweed
 - **Oracle Linux** 7, 8 (experimental: [centos 8 notes](docs/centos8.md) apply)
+- **Kylin Linux Advanced Server V10** (experimental: see [kylin linux notes](docs/kylinlinux.md))
 
 Note: Upstart/SysV init based OS types are not supported.
 

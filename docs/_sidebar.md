@@ -29,6 +29,9 @@
   * [Flatcar Container Linux](docs/flatcar.md)
   * [Fedora CoreOS](docs/fcos.md)
   * [OpenSUSE](docs/opensuse.md)
+  * [RedHat Enterprise Linux](docs/rhel.md)
+  * [CentOS/OracleLinux/AlmaLinux/Rocky Linux](docs/centos.md)
+  * [Kylin Linux Advanced Server V10](docs/kylinlinux.md)
 * Advanced
   * [Proxy](/docs/proxy.md)
   * [Downloads](docs/downloads.md)
