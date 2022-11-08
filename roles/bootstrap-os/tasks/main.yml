@@ -57,7 +57,7 @@
     name: "{{ inventory_hostname }}"
   when:
     - override_system_hostname
-    - ansible_os_family not in ['Suse', 'Flatcar', 'Flatcar Container Linux by Kinvolk', 'ClearLinux']
+    - ansible_os_family not in ['Suse', 'Flatcar', 'Flatcar Container Linux by Kinvolk', 'ClearLinux', 'Kylin Linux Advanced Server']
     - not ansible_distribution == "Fedora"
     - not is_fedora_coreos
 
@@ -69,9 +69,10 @@
   changed_when: false
   when: >
     override_system_hostname
-    and (ansible_os_family in ['Suse', 'Flatcar', 'Flatcar Container Linux by Kinvolk', 'ClearLinux']
+    and (ansible_os_family in ['Suse', 'Flatcar', 'Flatcar Container Linux by Kinvolk', 'ClearLinux', 'Kylin Linux Advanced Server']
     or is_fedora_coreos
     or ansible_distribution == "Fedora")
+
 
 # (3/3)
 - name: Update hostname fact (CoreOS, Flatcar, Suse, ClearLinux and Fedora only)

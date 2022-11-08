@@ -107,6 +107,12 @@
     - fastestmirror.stat.exists
     - not centos_fastestmirror_enabled
 
+- name: Set the ansible_python_interpreter for kylin
+  set_fact:
+    ansible_python_interpreter: "/usr/bin/python3"
+  when:
+    - '''ID="kylin"'' in os_release.stdout_lines'
+
 # libselinux-python is required on SELinux enabled hosts
 # See https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#managed-node-requirements
 - name: Install libselinux python package

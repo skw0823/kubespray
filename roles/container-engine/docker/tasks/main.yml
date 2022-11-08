@@ -71,6 +71,14 @@
     mode: 0644
   when: ansible_distribution == "Fedora" and not is_ostree
 
+- name: Configure CentOS7 base repo for KylinLinux
+  template:
+    src: "kylin_CentOS-Base.repo.j2"
+    dest: "{{ yum_repo_dir }}/CentOS-Base.repo"
+    mode: 0644
+  when:
+    - ansible_distribution == "Kylin Linux Advanced Server"
+
 - name: Configure docker repository on RedHat/CentOS/OracleLinux/AlmaLinux/KylinLinux
   template:
     src: "rh_docker.repo.j2"
