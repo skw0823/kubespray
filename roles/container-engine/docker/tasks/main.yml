@@ -39,15 +39,15 @@
   tags:
     - facts
 
-- name: check for minimum kernel version
-  fail:
-    msg: >
-          docker requires a minimum kernel version of
-          {{ docker_kernel_min_version }} on
-          {{ ansible_distribution }}-{{ ansible_distribution_version }}
-  when: (not ansible_os_family in ["Flatcar Container Linux by Kinvolk", "ClearLinux"]) and (ansible_kernel is version(docker_kernel_min_version, "<"))
-  tags:
-    - facts
+#- name: check for minimum kernel version
+#  fail:
+#    msg: >
+#          docker requires a minimum kernel version of
+#          {{ docker_kernel_min_version }} on
+#          {{ ansible_distribution }}-{{ ansible_distribution_version }}
+#  when: (not ansible_os_family in ["Flatcar Container Linux by Kinvolk", "ClearLinux"]) and (ansible_kernel is version(docker_kernel_min_version, "<"))
+#  tags:
+#    - facts
 
 - name: disable unified_cgroup_hierarchy in Fedora 31+
   command: grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
@@ -64,42 +64,6 @@
     - ansible_proc_cmdline['systemd.unified_cgroup_hierarchy'] is not defined or ansible_proc_cmdline['systemd.unified_cgroup_hierarchy'] != '0'
 
 - import_tasks: pre-upgrade.yml
-
-- name: ensure docker-ce repository public key is installed
-  action: "{{ docker_repo_key_info.pkg_key }}"
-  args:
-    id: "{{ item }}"
-    url: "{{ docker_repo_key_info.url }}"
-    state: present
-  register: keyserver_task_result
-  until: keyserver_task_result is succeeded
-  retries: 4
-  delay: "{{ retry_stagger | d(3) }}"
-  with_items: "{{ docker_repo_key_info.repo_keys }}"
-  when: not (ansible_os_family in ["Flatcar Container Linux by Kinvolk", "RedHat", "Suse", "ClearLinux"] or is_ostree)
-
-- name: ensure docker-ce repository is enabled
-  action: "{{ docker_repo_info.pkg_repo }}"
-  args:
-    repo: "{{ item }}"
-    state: present
-  with_items: "{{ docker_repo_info.repos }}"
-  when: not (ansible_os_family in ["Flatcar Container Linux by Kinvolk", "RedHat", "Suse", "ClearLinux"] or is_ostree) and (docker_repo_info.repos|length > 0)
-
-- name: ensure docker-engine repository public key is installed
-  action: "{{ dockerproject_repo_key_info.pkg_key }}"
-  args:
-    id: "{{ item }}"
-    url: "{{ dockerproject_repo_key_info.url }}"
-    state: present
-  register: keyserver_task_result
-  until: keyserver_task_result is succeeded
-  retries: 4
-  delay: "{{ retry_stagger | d(3) }}"
-  with_items: "{{ dockerproject_repo_key_info.repo_keys }}"
-  when:
-    - not (ansible_os_family in ["Flatcar Container Linux by Kinvolk", "RedHat", "Suse", "ClearLinux"] or is_ostree)
-    - use_docker_engine is defined and use_docker_engine
 
 - name: ensure docker-engine repository is enabled
   action: "{{ dockerproject_repo_info.pkg_repo }}"

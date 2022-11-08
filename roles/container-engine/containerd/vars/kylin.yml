@@ -1,0 +1,11 @@
+---
+containerd_package_info:
+  pkg_mgr: dnf
+  pkgs:
+    - name: "{{ containerd_versioned_pkg[containerd_version | string] }}"
+
+containerd_pkgs:
+  - name: "{{ containerd_versioned_pkg[containerd_version | string] }}"
+    yum_conf: "{{ containerd_yum_conf }}"
+
+runc_binary: /bin/runc
