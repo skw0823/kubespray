@@ -65,16 +65,6 @@
 
 - import_tasks: pre-upgrade.yml
 
-- name: ensure docker-engine repository is enabled
-  action: "{{ dockerproject_repo_info.pkg_repo }}"
-  args:
-    repo: "{{ item }}"
-    state: present
-  with_items: "{{ dockerproject_repo_info.repos }}"
-  when:
-    - use_docker_engine is defined and use_docker_engine
-    - not (ansible_os_family in ["Flatcar Container Linux by Kinvolk", "RedHat", "Suse", "ClearLinux"] or is_ostree) and (dockerproject_repo_info.repos|length > 0)
-
 - name: Configure docker repository on Fedora
   template:
     src: "fedora_docker.repo.j2"
