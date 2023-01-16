@@ -13,7 +13,7 @@
 
 - include_role:
     name: kubespray-defaults
-    task_from: fallback_ips
+    tasks_from: fallback_ips
 
 - name: Set node IP
   set_fact:
