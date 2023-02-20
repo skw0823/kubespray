@@ -314,3 +314,11 @@
   when:
     - kube_external_ca_mode
     - not ignore_assert_errors
+
+- name: Stop firewalld service if detected
+  shell: |
+    for service in firewalld; do
+      if [ -f /usr/lib/systemd/system/$service.service ]; then
+        systemctl disable --now $service
+      fi
+    done
